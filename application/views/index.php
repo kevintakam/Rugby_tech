@@ -55,7 +55,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#team">Joueurs</a></li>
           
-          <li><a href="<?= base_url('welcome/connexion') ?>">Connexion</a></li>
+          <li><a href="<?= base_url('welcome/login') ?>">Connexion</a></li>
         </ul>
       </nav><!-- .navbar -->
 
