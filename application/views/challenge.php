@@ -5,7 +5,7 @@
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Bienvenue sur  <span>Rugby Tech</span></h2>
-          <p>Ici vous pourrez trouver toutes les informations des joueurs ainsi que leurs performances.</p>
+          <p>Ici vous pourrez trouver toutes les informations des différents challenges.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
              </div>
