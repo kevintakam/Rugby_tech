@@ -54,7 +54,9 @@
         <ul>
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#team">Joueurs</a></li> 
+          <li><a href="#prototype">Prototype</a></li>
+          <li><a href="#joueur">Joueurs</a></li> 
+          <li><a href="#challenge">Challenges</a></li> 
           <?php if ($this->session->userdata('login')==null) { ?>         
           <li><a href="<?= base_url('login') ?>">Connexion</a></li>
           <?php }else{ ?>
@@ -109,7 +111,7 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Lieu</a></h4>
+              <h4 class="title"><a href="" class="stretched-link">Entraînement</a></h4>
             </div>
           </div><!--End Icon Box -->
 
@@ -168,9 +170,47 @@
       </div>
     </section><!-- End About Us Section -->
 
+     <!-- ======= About Us Section ======= -->
+     <section id="prototype" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>À propos de notre prototype</h2>
+          <p>Chez RugbyTech, nous sommes une équipe d'étudiants passionnés par le rugby et l'innovation technologique. Notre objectif est de promouvoir la sécurité et l'amélioration des performances des joueurs de rugby grâce à des solutions novatrices. Nous avons développé un dispositif révolutionnaire qui vérifie la position des genoux lors des squats, prévenant les blessures et optimisant l'entraînement</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <h3>Notre Projet</h3>
+            <img src="assets/img/equipe.png" class="img-fluid rounded-4 mb-4" alt="">
+            <p>Notre équipe multidisciplinaire est composée d'ingénieurs, de développeurs et de passionnés de rugby. Nous croyons que la technologie peut bénéficier au sport en aidant les joueurs à atteindre leur plein potentiel tout en réduisant les risques de blessures</p>
+            <p>Notre dispositif utilise des capteurs de mouvement et des algorithmes avancés pour analyser en temps réel la posture des joueurs lors des squats. Il détecte les mouvements indésirables où les genoux rentrent vers l'intérieur, prévenant ainsi les blessures. Grâce à des alertes visuelles et sonores, le dispositif informe instantanément les joueurs lorsqu'ils effectuent un squat incorrect.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="content ps-0 ps-lg-5">
+              <p>
+              Nous avons également développé une plateforme en ligne qui enregistre les données de chaque joueur, telles que le nombre de répétitions et les performances au fil du temps. Ces données permettent aux entraîneurs et aux joueurs d'analyser les progrès et d'identifier les domaines à améliorer.
+              </p>
+              
+              <p>
+              Chez RugbyTech, nous sommes déterminés à fournir des outils technologiques pour améliorer la sécurité et les performances des joueurs de rugby. Rejoignez-nous dans notre mission d'améliorer le rugby grâce à la technologie. Ensemble, repoussons les limites, prévenons les blessures et inspirons une nouvelle génération de joueurs performants et en bonne santé.
+
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
 
     <!-- ======= Our Team Section ======= -->
-    <section id="team" class="team">
+    <section id="joueur" class="team joueur">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -219,6 +259,64 @@
                 <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="member">
+              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+              <h4>Amanda Jepson</h4>
+              <span>Accountant</span>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+
+
+    </section><!-- End Our Team Section -->
+            <!-- ======= Our Team Section ======= -->
+    <section id="challenge" class="team challenge">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Challenges</h2>
+          <p>Voici les différents challenges proposés</p>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="assets/img/challenge/challenge1.jpg" class="img-fluid" alt="">
+              <h4>Challenge 1</h4>
+              
+              
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="assets/img/challenge/challenge2.jpg" class="img-fluid" alt="">
+              <h4>Challenge 2</h4>
+              
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <img src="assets/img/" class="img-fluid" alt="">
+              <h4>William Anderson</h4>
+              
+              
             </div>
           </div><!-- End Team Member -->
 
