@@ -30,8 +30,9 @@
 <br />
 <br />
 <br />
+<br />
+<br />
     <div class="container">
-
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
@@ -47,10 +48,9 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenu sur Rugby tech</h1>
                                     </div>
-                                    <form class="user" method="POST" action="<?=base_url('login/index')?>">
-                                    
+                                    <form class="user" method="POST" action="<?=base_url('login/index')?>"> 
+                                    <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $error; ?></span><?php endif; ?>  
                                         <div class="form-group">
-                                        <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $error; ?></span><?php endif; ?>
                                             <input for="username" class="form-control form-control-user"
                                                 id="username" name="username" required="required" aria-describedby="emailHelp"
                                                 placeholder="Entrer votre nom utilisateur.......">
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
@@ -91,7 +91,6 @@
         </div>
 
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url() ?>assets2/vendor2/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets2/vendor2/bootstrap/js/bootstrap.bundle.min.js"></script>

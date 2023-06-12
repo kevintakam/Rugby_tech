@@ -31,6 +31,12 @@ class Login extends CI_Controller {
 			if($this->con->verifierinfo($nom,$password))
 			{
 				$this->session->set_userdata('login',$nom);
+				$remember = $this->input->post('remember');
+
+			if ($remember) {
+    // Garder la session active plus longtemps
+    		$this->session->sess_expiration = '86400'; // Exemple : 86400 secondes (24 heures)
+			}
                 redirect('welcome');
 			}
 			else

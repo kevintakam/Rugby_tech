@@ -16,8 +16,7 @@ class connexion extends CI_Model {
                         ->result();
 
     }
-    public function creercompte($nom,$prenom,$login,$password,$confirmpwd,$statut){
-	    $this->db->insert('users', array('nom' => $nom,'prenom' => $prenom,'login' => $login ,'pwd' => $password ,'confirm_pwd' => $confirmpwd , 'statut'=> 0 ));}
-
+    public function creercompte($nom,$prenom,$username,$password,$confirmpwd){
+	    $this->db->insert('compte', array('nom' => $nom,'prenom' => $prenom,'nom_utilisateur' => $username,'mot_de_passe' => $password,'conf_mot_de_passe' => $confirmpwd  ));}
 
 }

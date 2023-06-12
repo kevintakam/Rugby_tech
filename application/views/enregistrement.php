@@ -27,6 +27,11 @@
 <body class="bg-gradient-danger">
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
     <div class="container">
         <!-- Outer Row -->
@@ -42,28 +47,48 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenu sur Rugby tech</h1>
                                     </div>
-                  <form method="POST" action="#">
-                     <?php if(isset($message)) { ?> <span class="text-danger"></span> <?php echo $message; } ?>
-                        <div class="form-group">
-                            <label for="username"> Nom Utilisateur </label>
-                            <input type="text" class="form-control form-control-user" placeholder="entrer votre nom utilisateur" id="username" name="username" required="required">
-                        </div>
-                            <div class="form-group">
-                                <label for="password">Mot de Passe</label>
-                                <input type="password" class="form-control form-control-user" placeholder=" saisir votre mot de passe" id="password" name="password" required="required">
-                           </div>
-                             <div class="form-group">
-                                <label for="confpassword">confirmer votre mot de passe</label>
-                                <input type="password" class="form-control form-control-user" placeholder=" saisir votre mot de passe" id="confpassword" name="confpassword" required="required">
-                           </div>
-                            <br />
-                            <div class="text-center">
-                            <button type="submit" class="btn btn-success btn-user btn-block"  id="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Inscription</button>
-                            <hr />
-                               <a class="small" href="<?= base_url('login') ?>">j'ai déjà un compte compte !</a>
-                              </div>
-                              </div>
-                   </form>
+                                    <form class="user" method="POST" action="<?=base_url('login/creercompte')?>">  
+                                    <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $error; ?></span><?php endif; ?> 
+                                        <div class="form-group">
+                                            <input for="nom" class="form-control form-control-user"
+                                                id="nom" name="nom" required="required" aria-describedby="emailHelp"
+                                                placeholder="Entrer votre nom ">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>        
+                                        </div>
+                                        <div class="form-group">
+                                            <input for="prenom" class="form-control form-control-user"
+                                                id="prenom" name="prenom" required="required" aria-describedby="emailHelp"
+                                                placeholder="Entrer votre prenom">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>        
+                                        </div>
+                                        <div class="form-group">
+                                            <input for="username" class="form-control form-control-user"
+                                                id="username" name="username" required="required" aria-describedby="emailHelp"
+                                                placeholder="Entrer votre nom utilisateur.......">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>        
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="password" name="password" required="required" placeholder="Entrer votre mot de passe.......">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                
+                                        </div>
+                                                
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="confpassword" name="confpassword" required="required" placeholder="confirmer votre mot de passe.......">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                
+                                        </div>
+                                        <hr >
+                                         <button type="submit" class="btn btn-success btn-user btn-block"  id="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Inscription</button>
+
+                                        <hr>
+                                        <div class="text-center">
+                                        <a class="small" href="<?= base_url('login') ?>">J'ai déjà un compte !</a>
+                                    </div>
+                                    </form>
 
                                 </div>
                             </div>
