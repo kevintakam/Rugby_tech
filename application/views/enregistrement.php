@@ -1,93 +1,48 @@
 
-<?php
-session_start(); // démarrer une session
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Récupérer les valeurs du formulaire de connexion
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-    $confpassword = $_POST['confpassword'];
-     $question = $_POST['question'];
-    $reponse = $_POST['reponses'];
 
-  // Connexion à la basede données
-  try {
-    $db='feane';
-    $user='root';
-    $password_db='';
-    $url='localhost';
-    $port=3306;
-    $pdo = new PDO('mysql:host='.$url.';port='.$port.';dbname='.$db,
-                   $user, $password_db);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch(PDOException $e) {
-    die("Erreur de connexion à la base de données: " . $e->getMessage());
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  // Vérifier les informations d'identification de l'utilisateur
-$stmt = $pdo->prepare("INSERT INTO compte (nom,mot_de_passe,conf_mot_de_passe,Question,reponse) VALUES (:nom,:mot_de_passe,:conf_mot_de_passe,:Question,:reponse)");
-$stmt->bindParam(':nom', $username);
-$stmt->bindParam(':mot_de_passe', $password);
-$stmt->bindParam(':conf_mot_de_passe', $confpassword);
-$stmt->bindParam(':Question', $question);
-$stmt->bindParam(':reponse', $reponse);
-$password = $_POST['password'];
-$confpassword = $_POST['confpassword'];
-$reponse = $_POST['reponses'];
-if($password != $confpassword){
-  $message = "Les mots de passe ne correspondent pas.";
-} else {
-  $stmt->execute();
-  $message = "Le compte a été créé avec succès.";
-  header('Location: page_login.php');
-}
-}
-?>
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mon restaurant</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="images/f7.png">
-    <link rel="shortcut icon" href="images/f7.png">
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Rugby Tech</title>
+    <link href="<?= base_url() ?>assets/img/logo.png" rel="icon">
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url() ?>assets2/vendor2/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
-
+    <!-- Custom styles for this template-->
+    <link href="<?= base_url() ?>assets2/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<body class="bg-gradient-danger">
+<br />
+<br />
 
-<body class="bg-gradient-warning" style="
-    background-color: #f6c23e;
-    background-image: linear-gradient(180deg,#f6c23e 10%,#dda20a 100%);
-    background-size: cover;
-">
-
-
-    <div class="sufee-login d-flex align-content-center flex-wrap">
-        <div class="container">
-            <div class="login-content">
-                <div class="login-logo">
-                    <a href="index.html">
-                        <h1 style="color:white;font-family:lucida;"> Mon restaurant <img src="images/f7.png" style="width:50px;height:50px"></h1>
-                    </a>
-                </div>
-                <div class="login-form">
-                    <form method="POST" action="#">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6"><img  src="<?= base_url() ?>assets/img/logo.png" style="position:absolute;width:100%;height:100%;background-image:white;"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenu sur Rugby tech</h1>
+                                    </div>
+                  <form method="POST" action="#">
                      <?php if(isset($message)) { ?> <span class="text-danger"></span> <?php echo $message; } ?>
                         <div class="form-group">
                             <label for="username"> Nom Utilisateur </label>
@@ -101,41 +56,36 @@ if($password != $confpassword){
                                 <label for="confpassword">confirmer votre mot de passe</label>
                                 <input type="password" class="form-control form-control-user" placeholder=" saisir votre mot de passe" id="confpassword" name="confpassword" required="required">
                            </div>
-                                <div class="form-group">
-                                <label for="question">Questions</label>
-                                <select class="form-control form-control-user" id="question" name="question">
-                                  <option value="Quelle est ta couleur préféré ?" selected=""> Quelle est ta couleur préféré ?  </option>
-                                   <option value="Quelle est ton sport préféré ? "> Quelle est ton sport préféré ?  </option>
-                                    <option value="Quelle est ton  film préféré ? "> Quelle est ton  film préféré ?  </option>
-                                </select>
-                           </div>
-                             <div class="form-group">
-                                <label for="reponses">Reponses</label>
-                                <input type="text" class="form-control form-control-user" placeholder="entre la réponse à la question sélectionnée" id="reponses" name="reponses" required="required">
-                           </div>
+                            <br />
+                            <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-user btn-block"  id="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Inscription</button>
+                            <hr />
+                               <a class="small" href="<?= base_url('login') ?>">j'ai déjà un compte compte !</a>
+                              </div>
+                              </div>
+                   </form>
 
-                                <div class="checkbox">
-                                    <label>
-                                <input type="checkbox"> mot de passe oublie
-                            </label>
                                 </div>
-                                <button type="submit" style="margin-bottom-bottom:20px;"  id="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">S'incrire</button>
-                                 <br />
-
-                                  <button   style="margin-top:10px; "  class="btn btn-primary btn-user btn-block btn-flat m-b-30 m-t-30"><a style="color:white" href="login.php">j'ai déjà un compte</a></button>                            
-                    </form
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url() ?>assets2/vendor2/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets2/vendor2/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url() ?>assets2/vendor2/jquery-easing/jquery.easing.min.js"></script>
 
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url() ?>assets2/js/sb-admin-2.min.js"></script>
 
 </body>
 
 </html>
+
+
