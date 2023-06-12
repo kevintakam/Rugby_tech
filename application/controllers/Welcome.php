@@ -27,4 +27,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('index.php');
 	}
+	public function challenge()
+	{
+		$this->load->view('challenge.php');
+	}
 }
