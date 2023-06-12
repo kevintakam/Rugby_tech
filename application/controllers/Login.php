@@ -52,9 +52,46 @@ class Login extends CI_Controller {
 		}
 		$this->load->view('login.php');
 	}
-	public function creercompte()
-	{
-		$this->load->view('enregistrement.php');
+
+	public function creercompte(){
+		$this->load->model("connexion", "con");
+		//$data['error']='vos données entrer sont incorrectes';
+		$this->form_validation->set_rules('nom','', 'required');
+		$this->form_validation->set_rules('prenom','', 'required');
+		$this->form_validation->set_rules('username','', 'required');
+		$this->form_validation->set_rules('password','', 'required');
+		$this->form_validation->set_rules('confpassword','', 'required');
+		if ($this->form_validation->run()){
+			$nom= $this->input->post('nom');
+			$prenom= $this->input->post('prenom');
+			$username= $this->input->post('username');
+			$password= $this->input->post('password');
+			$confirmpwd= $this->input->post('confpassword');
+			//var_dump($statut);
+			if($password == $confirmpwd){
+			 	 $this->con->creercompte($nom,$prenom,$username,$password,$confirmpwd);
+					$message = array(
+                    'status' => true,
+					'title' => 'Registration Done',
+                    'message' => 'Registration successfully done!'
+				);
+					 $this->session->set_userdata('username',$username);
+				redirect('login',$message);
+				}else{
+			  		$message = array(
+                    'status' => false,
+                    'title' => 'Error',
+                    'message' => 'Something is wrong!'
+                	);
+			  
+				$this->load->view('enregistrement.php',$message);
+				}	
+			
+			echo json_encode($message);	
+		}else{
+
+			$this->load->view('enregistrement.php');	
+		}
 	}
 	
 	public function deconnexion(){

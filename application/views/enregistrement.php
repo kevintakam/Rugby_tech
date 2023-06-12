@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url() ?>assets2/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert.min.css">
 
 </head>
 <body class="bg-gradient-danger">
@@ -45,10 +46,10 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenu sur Rugby tech</h1>
+                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenue sur Rugby tech</h1>
                                     </div>
-                                    <form class="user" method="POST" action="<?=base_url('login/creercompte')?>">  
-                                    <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $error; ?></span><?php endif; ?> 
+                                    <form id="register" class="user" method="POST" action="<?=base_url('login/creercompte')?>">  
+                                    <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $message; ?></span><?php endif; ?> 
                                         <div class="form-group">
                                             <input for="nom" class="form-control form-control-user"
                                                 id="nom" name="nom" required="required" aria-describedby="emailHelp"
@@ -108,6 +109,47 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url() ?>assets2/js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url() ?>assets/sweetalert/sweetalert.min.js"></script>
+    <script>
+  $(document).ready(function() {
+     $('#register').on('submit',function(){
+          var nom = $('#nom').val();
+          var prenom = $('#prenom').val();
+          var username = $('#username').val();
+          var pwd = $('#password').val();
+          var confirm = $('#confpassword').val();
+              if(nom ==''){
+                $('#nom').focus();
+                swal('required','name is required', 'warning');
+                return false;
+              }
+              if(username ==''){
+                swal('required','username is required', 'warning');
+                return false;
+              }
+              if(pwd ==''){
+                swal('required','password  is required', 'warning');
+                return false;
+              }
+              if(confirm ==''){
+                swal('required','password confirm is required', 'warning');
+                return false;
+              }              
+              if(confirm != pwd){
+                  swal('required','password and confirm have value different', 'warning');
+                return false;
+              }
+              else{
+
+                 swal({'ok','registration are successful', 'success','ok'},
+                 );
+                
+              }
+             });
+             
+          
+        });
+</script>
 
 </body>
 

@@ -46,7 +46,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenu sur Rugby tech</h1>
+                                        <h1 class="h4 text-gray-900 mb-4" style="font-family: lucida;">Bienvenue sur Rugby tech</h1>
                                     </div>
                                     <form class="user" method="POST" action="<?=base_url('login/index')?>"> 
                                     <?php if (isset($error)): ?> <span style="color: red;" id="error" required> <?php echo $error; ?></span><?php endif; ?>  

@@ -20,15 +20,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->view('header');
 		$this->load->view('index.php');
+		$this->load->view('footer');
 	}
 
-	public function login()
-	{
-		$this->load->view('index.php');
-	}
 	public function challenge()
 	{
+		$this->load->view('header');
 		$this->load->view('challenge.php');
+		$this->load->view('footer');
 	}
 }
