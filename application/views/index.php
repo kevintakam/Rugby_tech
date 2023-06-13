@@ -1,78 +1,11 @@
+<!-- Inclusion de Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<<<<<<< HEAD
-=======
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Inclusion de jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <title>Rugby tech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="<?= base_url() ?>assets/img/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  
-  <!-- Vendor CSS Files -->
-  <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= base_url() ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Impact
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-
-
-  <header id="header" class="header d-flex align-items-center">
-
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="<?= base_url() ?>assets/img/logo.png" style="width:500%;height:auto;">
-      </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#prototype">Prototype</a></li>
-          <li><a href="#joueur">Joueurs</a></li> 
-          <li><a href="#challenge">Challenges</a></li> 
-          <?php if ($this->session->userdata('login')==null) { ?>         
-          <li><a href="<?= base_url('login') ?>">Connexion</a></li>
-          <?php }else{ ?>
-            <li><span class="text-white"><?php echo $this->session->userdata('login'); ?>  <i  class="fas fa-circle text-success"></i> </span> </li>  
-            <li>  <a href="<?= base_url('login/deconnexion') ?>"><i  class="fas fa-sign-out-alt fa-x text-white"></i></a></li>
-            <?php } ?>
-        </ul>
-      </nav><!-- .navbar -->
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    </div>
-  </header><!-- End Header -->
-  <!-- End Header -->
->>>>>>> e7f882304cfedb1ec0aa65d58fc9b73a7522db64
+<!-- Inclusion du script de Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
@@ -171,43 +104,6 @@
       </div>
     </section><!-- End About Us Section -->
 
-     <!-- ======= About Us Section ======= -->
-     <section id="prototype" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>À propos de notre prototype</h2>
-          <p>Chez RugbyTech, nous sommes une équipe d'étudiants passionnés par le rugby et l'innovation technologique. Notre objectif est de promouvoir la sécurité et l'amélioration des performances des joueurs de rugby grâce à des solutions novatrices. Nous avons développé un dispositif révolutionnaire qui vérifie la position des genoux lors des squats, prévenant les blessures et optimisant l'entraînement</p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <h3>Notre Projet</h3>
-            <img src="assets/img/equipe.png" class="img-fluid rounded-4 mb-4" alt="">
-            <p>Notre équipe multidisciplinaire est composée d'ingénieurs, de développeurs et de passionnés de rugby. Nous croyons que la technologie peut bénéficier au sport en aidant les joueurs à atteindre leur plein potentiel tout en réduisant les risques de blessures</p>
-            <p>Notre dispositif utilise des capteurs de mouvement et des algorithmes avancés pour analyser en temps réel la posture des joueurs lors des squats. Il détecte les mouvements indésirables où les genoux rentrent vers l'intérieur, prévenant ainsi les blessures. Grâce à des alertes visuelles et sonores, le dispositif informe instantanément les joueurs lorsqu'ils effectuent un squat incorrect.</p>
-          </div>
-          <div class="col-lg-6">
-            <div class="content ps-0 ps-lg-5">
-              <p>
-              Nous avons également développé une plateforme en ligne qui enregistre les données de chaque joueur, telles que le nombre de répétitions et les performances au fil du temps. Ces données permettent aux entraîneurs et aux joueurs d'analyser les progrès et d'identifier les domaines à améliorer.
-              </p>
-              
-              <p>
-              Chez RugbyTech, nous sommes déterminés à fournir des outils technologiques pour améliorer la sécurité et les performances des joueurs de rugby. Rejoignez-nous dans notre mission d'améliorer le rugby grâce à la technologie. Ensemble, repoussons les limites, prévenons les blessures et inspirons une nouvelle génération de joueurs performants et en bonne santé.
-
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
 
 
     <!-- ======= Our Team Section ======= -->
@@ -219,67 +115,78 @@
           <p>Voici les différents joueurs</p>
         </div>
 
+   
         <div class="row gy-4">
-
+        <?php foreach ($joueurs as $j): ?>
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <h4>Joueur 1</h4>
-              <span>Espoir Argent</span>
+              <img src="<?php echo base_url().$j->url; ?>" class="img-fluid" alt="">
+              <h4><?php echo $j->nom ?></h4>
+              <span><?php echo $j->prenom ?></span>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a   data-toggle="modal" data-target="#modaljoueur-<?php echo $j->id; ?>" data-id="<?php echo $j->id; ?>">
+          <i class="fa fa-eye fa-2x"></i>
+        </a>
               </div>
             </div>
           </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <h4>Sarah Jhinson</h4>
-              <span>Marketing</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+        <?php endforeach; ?>
+        <?php foreach ($joueursid as $z): ?>
+        <!-- Modal -->
+        <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" id="modaljoueur-<?php echo $z->id; ?>">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="largeModalLabel">Informations sur le joueur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+          
+              <div class="col-md-12 text-center">
+                <img src="<?php echo base_url().$z->url; ?>" class="img-fluid" alt="Image" style="width:30%;height:auto;">
+              </div>
+              <hr style="border-size: 4px solid;border-color:red;">
+              <div class="row">
+              <div class="col-md-4">
+                <h6>Nom du joueur</h6>
+                <p><?php echo $z->nom ?></p>
+              </div>
+                <div class="col-md-4">
+                  <h6>prenom du joueur</h6>
+                  <p><?php echo $z->prenom ?></p>
+                </div>
+              <div class="col-md-4">
+                <h6>date de naissance</h6>
+                <p><?php echo $z->date_naissance?></p>
+              </div>
+              <div class="col-md-4">
+                <h6>poste</h6>
+                <p><?php echo $z->poste ?></p>
+              </div>
+              <div class="col-md-4">
+                <h6>poids</h6>
+                <p><?php echo $z->poids ?></p>
+              </div>
+              <div class="col-md-4">
+                <h6>dossard</h6>
+                <p><?php echo $z->numero ?></p>
               </div>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <h4>William Anderson</h4>
-              <span>Content</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
               </div>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+          </div>
         </div>
-
-      </div>
+        </div>
+          <?php endforeach ?> 
+        </div> 
 
 
 
@@ -287,67 +194,66 @@
             <!-- ======= Our Team Section ======= -->
     <section id="challenge" class="team challenge">
       <div class="container" data-aos="fade-up">
-
         <div class="section-header">
           <h2>Challenges</h2>
           <p>Voici les différents challenges proposés</p>
         </div>
-
         <div class="row gy-4">
-
+        <?php foreach ($challenges as $c): ?>
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/challenge/challenge1.jpg" class="img-fluid" alt="">
-              <h4>Challenge 1</h4>
-              
-              
+              <a  data-toggle="modal" data-target="#modalchallenge-<?php echo $c->id; ?>" data-id="<?php echo $c->id; ?>"><img src="<?php echo base_url().$c->url; ?>" class="img-fluid" alt=""></a>
+              <h4><?php echo $c->intitule; ?></h4>                      
             </div>
           </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="assets/img/challenge/challenge2.jpg" class="img-fluid" alt="">
-              <h4>Challenge 2</h4>
-              
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="assets/img/" class="img-fluid" alt="">
-              <h4>William Anderson</h4>
-              
-              
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
+          <?php endforeach; ?>
       </div>
+    <?php foreach ($challengesid as $t): ?>
+      <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" id="modalchallenge-<?php echo $t->id; ?>">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="largeModalLabel">Informations sur le challenge</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+        
+            <div class="col-md-12 text-center">
+              <img src="<?php echo base_url().$t->url; ?>" class="img-fluid" alt="Image" style="width:30%;height:auto;">
+            </div>
+            <hr style="border-size: 4px solid;border-color:red;">
+            <div class="row">
+            <div class="col-md-4">
+              <h6>Nom du joueur</h6>
+              <p><?php echo $t->intitule ?></p>
+            </div>
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; ?>
+
     </section><!-- End Our Team Section -->
 
-    
-    
-
-   
-
-    
 
   </main><!-- End #main -->
+  <script>
+    var message = <?php echo $json_message; ?>;
+    Swal.fire({
+        icon: message.status ? 'success' : 'error',
+        title: message.title,
+        text: message.message,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    });
+</script>
+
 
 
 

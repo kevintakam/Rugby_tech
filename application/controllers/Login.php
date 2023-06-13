@@ -70,21 +70,18 @@ class Login extends CI_Controller {
 			//var_dump($statut);
 			if($password == $confirmpwd){
 			 	 $this->con->creercompte($nom,$prenom,$username,$password,$confirmpwd);
-					$message = array(
-                    'status' => true,
-					'title' => 'Registration Done',
-                    'message' => 'Registration successfully done!'
+				  $message = array(
+					'status' => true,
+					'title' => 'Inscription réussie',
+					'message' => 'Votre compte a été créé avec succès!'
 				);
-					 $this->session->set_userdata('username',$username);
-				redirect('login',$message);
+				$json_message = json_encode($message);
+				$this->session->set_userdata('login',$nom);
+					 redirect('welcome',$json_message);
 				}else{
-			  		$message = array(
-                    'status' => false,
-                    'title' => 'Error',
-                    'message' => 'Something is wrong!'
-                	);
+					$data['error']='verifier les informations saisies!!! ';
 			  
-				$this->load->view('enregistrement.php',$message);
+				$this->load->view('enregistrement.php',$data);
 				}	
 			
 			echo json_encode($message);	

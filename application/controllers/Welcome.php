@@ -20,9 +20,20 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		    // Vérifier si l'utilisateur est connecté
+		if (!$this->session->userdata('login')) {
+				// Rediriger vers la page de connexion ou afficher un message d'erreur
+				redirect('login'); // Remplacez 'auth/login' par l'URL de votre page de connexion
+		}else{
+		$this->load->model("connexion", "con");
+		$id= $this->input->get('id');
+		$data['joueurs']=$this->con->recuperertouslesjoueurs();
+		$data['joueursid']=$this->con->recuperertouslesjoueurs($id);
+		$data['challengesid']=$this->con->recupererchallengeparid($id);
+		$data['challenges']=$this->con->recuperertousleschallenges();
 		$this->load->view('header');
-		$this->load->view('index.php');
-		$this->load->view('footer');
+		$this->load->view('index.php',$data);
+		$this->load->view('footer');}
 	}
 
 	public function challenge()

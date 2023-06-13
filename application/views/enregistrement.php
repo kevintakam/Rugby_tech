@@ -111,46 +111,15 @@
     <script src="<?= base_url() ?>assets2/js/sb-admin-2.min.js"></script>
     <script src="<?= base_url() ?>assets/sweetalert/sweetalert.min.js"></script>
     <script>
-  $(document).ready(function() {
-     $('#register').on('submit',function(){
-          var nom = $('#nom').val();
-          var prenom = $('#prenom').val();
-          var username = $('#username').val();
-          var pwd = $('#password').val();
-          var confirm = $('#confpassword').val();
-              if(nom ==''){
-                $('#nom').focus();
-                swal('required','name is required', 'warning');
-                return false;
-              }
-              if(username ==''){
-                swal('required','username is required', 'warning');
-                return false;
-              }
-              if(pwd ==''){
-                swal('required','password  is required', 'warning');
-                return false;
-              }
-              if(confirm ==''){
-                swal('required','password confirm is required', 'warning');
-                return false;
-              }              
-              if(confirm != pwd){
-                  swal('required','password and confirm have value different', 'warning');
-                return false;
-              }
-              else{
-
-                 swal({'ok','registration are successful', 'success','ok'},
-                 );
-                
-              }
-             });
-             
-          
-        });
+    var message = <?php echo $json_message; ?>;
+    Swal.fire({
+        icon: message.status ? 'success' : 'error',
+        title: message.title,
+        text: message.message,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    });
 </script>
-
 </body>
 
 </html>

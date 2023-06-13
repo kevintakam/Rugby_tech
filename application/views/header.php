@@ -54,7 +54,7 @@
         <ul>
           <li><a href="<?= base_url('welcome') ?>">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#team">Joueurs</a></li> 
+          <li><a href="#joueur">Joueurs</a></li> 
           <?php if ($this->session->userdata('login')==null) { ?>         
           <li><a href="<?= base_url('login') ?>">Connexion</a></li>
           <?php }else{ ?>
