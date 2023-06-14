@@ -31,7 +31,7 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-easel"></i></div>
-              <h4 class="title"><a href="<?= base_url('welcome/challenge')?>" class="stretched-link">Challenge</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalChallenge">Challenge</a></h4>
             </div>
           </div><!--End Icon Box -->
 
@@ -254,6 +254,48 @@
     });
 </script>
 
+<!-- Modal -->
+<div class="modal" id="ModalChallenge">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Contenu du modal -->
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            <div class="container" data-aos="fade-up">
 
+<div class="section-header">
+  <h2>À propos du Prototype</h2>
+  <p>Notre prototype permet de manière simple et rapide de savoir si le squat est bien réalisé de manière sécuritaire. Il se met en place rapidement grâce à une genouillère. Les données sont ensuite envoyé sur le site permettant d'avoir un suivi.</p>
+</div>
+
+<div class="row gy-4">
+  <div>
+    <h3>Notre Projet</h3>
+    <img src="assets/img/prototype/genou.jpg" class="img-fluid rounded-4 mb-4" alt="">
+     <p>Notre dispositif utilise des capteurs de mouvement et des algorithmes avancés pour analyser en temps réel la posture des joueurs lors des squats. Il détecte les mouvements indésirables où les genoux rentrent vers l'intérieur, prévenant ainsi les blessures. Grâce à des alertes visuelles et sonores, le dispositif informe instantanément les joueurs lorsqu'ils effectuent un squat incorrect.</p>
+ 
+    
+      
+
+      <div class="position-relative mt-4">
+        <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 
