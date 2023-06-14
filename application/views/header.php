@@ -42,7 +42,7 @@
 
 
 
-  <header id="header" class="header d-flex align-items-center">
+  <header id="header" class="header d-flex align-items-center bg-gradient-danger">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">

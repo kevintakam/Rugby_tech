@@ -42,4 +42,30 @@ class Welcome extends CI_Controller {
 		$this->load->view('challenge.php');
 		$this->load->view('footer');
 	}
+
+	public function insertiondonnee(){
+		// Charger le modèle de données
+        $this->load->model("connexion","con");
+
+        // Chemin vers le fichier à importer
+        $filepath = 'text.txt'; // Remplacez par le chemin réel de votre fichier
+
+        // Lire le fichier
+        $file = fopen($filepath, 'r');
+
+        // Parcourir les lignes du fichier
+        while (($data = fgetcsv($file)) !== FALSE) {
+            // Insérer les données dans la base de données
+			$dataarray[]=$data;
+        }
+
+        // Fermer le fichier
+        fclose($file);
+		// Insérer les données dans la base de données
+		foreach ($dataarray as $value) {
+		  $this->con->insertData($value);
+	  }
+        // Afficher un message de succès
+        echo 'Données importées avec succès !';
+	}
 }
