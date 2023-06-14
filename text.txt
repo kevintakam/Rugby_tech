@@ -1,4 +1,10 @@
-12,17;
-2,8;
-78,3;
-78,98;
+Distance: 198.10 cm
+Distance: 205.10 cm
+Distance: 198.10 cm
+Distance: 198.10 cm
+Distance: 198.10 cm
+Distance: 198.10 cm
+Distance: 198.10 cm
+Distance: 209.10 cm
+Distance: 206.10 cm
+Distance: 204.10 cm

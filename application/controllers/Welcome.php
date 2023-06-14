@@ -46,7 +46,8 @@ class Welcome extends CI_Controller {
 	public function insertiondonnee(){
 		// Charger le modèle de données
         $this->load->model("connexion","con");
-
+		$data['joueurs']=$this->con->recuperertouslesjoueurs();
+	
         // Chemin vers le fichier à importer
         $filepath = 'text.txt'; // Remplacez par le chemin réel de votre fichier
 
@@ -58,13 +59,20 @@ class Welcome extends CI_Controller {
             // Insérer les données dans la base de données
 			$dataarray[]=$data;
         }
-
+		var_dump($dataarray);
         // Fermer le fichier
         fclose($file);
+
 		// Insérer les données dans la base de données
 		foreach ($dataarray as $value) {
-		  $this->con->insertData($value);
+			$distance = str_replace('Distance: ', '', $value[0]);
+
+			  // Compter le nombre d'éléments dans la valeur de distance
+			  $count = strlen($distance);
+
+		  $this->con->insertData($distance);
 	  }
+	  $this->con->insertSquad($count);
         // Afficher un message de succès
         echo 'Données importées avec succès !';
 	}
