@@ -49,4 +49,14 @@ class connexion extends CI_Model {
                          ->result(); 
                         
     }
+    public function insertData($value)
+    {
+        // Insérer la valeur dans la table "performance" de la base de données
+        $insertData = array(
+            'distance_R' => $value[0],
+            'distance_L' => $value[1];
+        );
+        $this->db->insert('perfomance', $insertData);
+        return $this->db->insert_id(); // Retourne l'ID de l'enregistrement inséré
+    }
 }

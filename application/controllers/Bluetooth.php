@@ -1,44 +1,35 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require(APPPATH.'libraries/php_serial.php');
+require(APPPATH.'libraries/PhpSerial.php');
 
 class Bluetooth extends CI_Controller {
-    public function receiveData() {
-        // Inclure la bibliothèque php_serial
-        require(APPPATH.'libraries/php_serial.php');
+    public function receiveData()
+    {
+        // Charger la bibliothèque PhpSerial
+        $this->load->library('PhpSerial');
 
-        // Créer une instance de la classe phpSerial
-        $serial = new phpSerial;
+        // Créer une instance de PhpSerial
+        $serial = new PhpSerial();
 
-        // Définir le port série (COMx ou /dev/ttyXXX)
-        $port = 'COM8';
-
-        // Configurer les paramètres de la connexion série
-        $serial->deviceSet($port);
-        $serial->confBaudRate(9600);
-        $serial->confParity('none');
-        $serial->confCharacterLength(8);
-        $serial->confStopBits(1);
-        $serial->confFlowControl('none');
+        // Définir le port série
+        $serial->deviceSet('COM9');
 
         // Ouvrir la connexion série
-        $serial->deviceOpen();
+        if ($serial->deviceOpen()) {
+            // Envoyer un message
+            $serial->sendMessage("Hello, Arduino!");
 
-        // Lire les données Bluetooth en boucle
-        while (true) {
-            // Lire une ligne de données Bluetooth
-            $data = $serial->readLine();
+            // Lire les données du port série
+            $data = $serial->readPort();
 
-            // Traiter les données (par exemple, les stocker en base de données)
-            // ...
-            // Votre code de traitement ici
+            // Fermer la connexion série
+            $serial->deviceClose();
 
-            // Afficher les données à des fins de débogage
-            echo "Données reçues : " . $data . "\n";
+            // Afficher les données reçues
+            echo "Données reçues : " . $data;
+        } else {
+            echo "Impossible d'ouvrir la connexion série.";
         }
-
-        // Fermer la connexion série
-        $serial->deviceClose();
     }
 }
