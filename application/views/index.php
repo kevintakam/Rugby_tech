@@ -38,21 +38,21 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-gem"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Match</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalPlanning">Planning</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Entraînement</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalEntrainement">Entrainement</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Prototype</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalPrototype">Prototype</a></h4>
             </div>
           </div><!--End Icon Box -->
 
@@ -255,7 +255,7 @@
 </script>
 
 <!-- Modal -->
-<div class="modal" id="ModalChallenge">
+<div class="modal" id="ModalPrototype">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Contenu du modal -->
@@ -298,4 +298,107 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal" id="ModalChallenge">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Contenu du modal -->
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            <div class="container" data-aos="fade-up">
 
+<div class="section-header">
+  <h2>À propos des challenges</h2>
+  <p>Vous avez la possibilité de réaliser des challenges, voir vos résultats et ceux de vos collègues. Les différents challenges se trouvent plus bas dans la page. Vos coachs peuvent en rajouter, si vous avez des suggestions n'hésitez pas à aller les voir</p>
+</div>
+
+
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal" id="ModalPlanning">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Contenu du modal -->
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            <div class="container" data-aos="fade-up">
+
+<div class="section-header">
+  <h2>À propos du Planning</h2>
+  <p>Ici vous pouvez voir votre planning</p>
+</div>
+
+<div class="row gy-4">
+  <div>
+    <h3>Planning</h3>
+    <img src="assets/img/planning/planning.jpg" class="img-fluid rounded-4 mb-4" alt="">
+    
+    
+  </div>
+</div>
+
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal" id="ModalEntrainement">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Contenu du modal -->
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            <div class="container" data-aos="fade-up">
+
+<div class="section-header">
+  <h2>À propos des Entrainement</h2>
+  <p>Ici vous pouvez voir les différents entrainement proposés par votre coach</p>
+</div>
+
+
+<div class="row gy-4">
+  <div>
+    <h3>Entrainement</h3>
+    <img src="assets/img/entrainement/entrainement.jpg" class="img-fluid rounded-4 mb-4" alt="">
+    
+    
+  </div>
+</div>
+
+
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
