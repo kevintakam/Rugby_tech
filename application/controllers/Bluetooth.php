@@ -12,7 +12,7 @@ class Bluetooth extends CI_Controller {
         $serial = new phpSerial;
 
         // Définir le port série (COMx ou /dev/ttyXXX)
-        $port = 'COM5';
+        $port = 'COM8';
 
         // Configurer les paramètres de la connexion série
         $serial->deviceSet($port);
