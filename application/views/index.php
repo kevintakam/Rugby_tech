@@ -66,46 +66,6 @@
 
   <main id="main">
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>À propos de RugbyTech</h2>
-          <p>Chez RugbyTech, nous sommes une équipe d'étudiants passionnés par le rugby et l'innovation technologique. Notre objectif est de promouvoir la sécurité et l'amélioration des performances des joueurs de rugby grâce à des solutions novatrices. Nous avons développé un dispositif révolutionnaire qui vérifie la position des genoux lors des squats, prévenant les blessures et optimisant l'entraînement</p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <h3>Notre Projet</h3>
-            <img src="assets/img/equipe.png" class="img-fluid rounded-4 mb-4" alt="">
-            <p>Notre équipe multidisciplinaire est composée d'ingénieurs, de développeurs et de passionnés de rugby. Nous croyons que la technologie peut bénéficier au sport en aidant les joueurs à atteindre leur plein potentiel tout en réduisant les risques de blessures</p>
-            <p>Notre dispositif utilise des capteurs de mouvement et des algorithmes avancés pour analyser en temps réel la posture des joueurs lors des squats. Il détecte les mouvements indésirables où les genoux rentrent vers l'intérieur, prévenant ainsi les blessures. Grâce à des alertes visuelles et sonores, le dispositif informe instantanément les joueurs lorsqu'ils effectuent un squat incorrect.</p>
-          </div>
-          <div class="col-lg-6">
-            <div class="content ps-0 ps-lg-5">
-              <p>
-              Nous avons également développé une plateforme en ligne qui enregistre les données de chaque joueur, telles que le nombre de répétitions et les performances au fil du temps. Ces données permettent aux entraîneurs et aux joueurs d'analyser les progrès et d'identifier les domaines à améliorer.
-              </p>
-              
-              <p>
-              Chez RugbyTech, nous sommes déterminés à fournir des outils technologiques pour améliorer la sécurité et les performances des joueurs de rugby. Rejoignez-nous dans notre mission d'améliorer le rugby grâce à la technologie. Ensemble, repoussons les limites, prévenons les blessures et inspirons une nouvelle génération de joueurs performants et en bonne santé.
-
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-
-
     <!-- ======= Our Team Section ======= -->
     <section id="joueur" class="team joueur">
       <div class="container" data-aos="fade-up">
@@ -124,9 +84,7 @@
               <h4><?php echo $j->nom ?></h4>
               <span><?php echo $j->prenom ?></span>
               <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a data-toggle="modal" data-target="#modaldistance-<?php echo $j->id; ?>" data-id="<?php echo $j->id; ?>"><i class="fa fa-chart-bar fa-2x"></i></a>
                 <a   data-toggle="modal" data-target="#modaljoueur-<?php echo $j->id; ?>" data-id="<?php echo $j->id; ?>">
           <i class="fa fa-eye fa-2x"></i>
         </a>
@@ -177,6 +135,9 @@
                 <p><?php echo $z->numero ?></p>
               </div>
             </div>
+            <hr style="border-size: 4px solid;border-color:red;">
+            <h3>statistiques de l'exercice du squad</h3>
+            <button type="button" class="btn btn-success" id="myButton" >activer</button>
           </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -185,12 +146,100 @@
           </div>
         </div>
         </div>
+       
+        <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" id="modaldistance-<?php echo $z->id; ?>">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="largeModalLabel">Exercice de Squad <?php echo $z->nom ?> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+          
+              <div class="col-md-12 text-center">
+                <img src="<?php echo base_url().$z->url; ?>" class="img-fluid" alt="Image" style="width:30%;height:auto;">
+              </div>
+              <hr style="border-size: 4px solid;border-color:red;">
+              <div class="row">
+              <div class="col-md-4">
+                <h6>Nom du joueur</h6>
+                <p><?php echo $z->nom ?></p>
+              </div>
+              <div class="col-md-4">
+                <h6>Nombre de squad</h6>
+                <p class="count"><?php  echo $squad_totals; ?> </p>
+              </div>
+              <hr >
+              <h6>Statistiques de l'exercice</h6>
+              <div class="col-xs-12">
+               <div class="col-xs-6">Nombre de mauvais squad:</div> 
+               <div class="col-xs-6 text-danger"><?php  echo count($distancesM); ?></div>
+               </div>
+              <?php foreach ($distancesM as $distance): ?>
+               <hr >
+               <div class="col-xs-12 row">
+               <div class="col-xs-3">Ecart de :<?php echo $distance->distance; ?> cm</div> 
+               <div class="col-xs-3 text-danger" ><p ><?php echo $distance->statut; ?></p></div>
+               <div class="col-xs-3 text-danger" ><p >squad N° : <?php echo $distance->Nombre_squats; ?></p></div>
+               </div>
+              <?php endforeach; ?>
+            </div>
+
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
           <?php endforeach ?> 
         </div> 
 
 
 
     </section><!-- End Our Team Section -->
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>À propos de RugbyTech</h2>
+          <p>Chez RugbyTech, nous sommes une équipe d'étudiants passionnés par le rugby et l'innovation technologique. Notre objectif est de promouvoir la sécurité et l'amélioration des performances des joueurs de rugby grâce à des solutions novatrices. Nous avons développé un dispositif révolutionnaire qui vérifie la position des genoux lors des squats, prévenant les blessures et optimisant l'entraînement</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <h3>Notre Projet</h3>
+            <img src="assets/img/equipe.png" class="img-fluid rounded-4 mb-4" alt="">
+            <p>Notre équipe multidisciplinaire est composée d'ingénieurs, de développeurs et de passionnés de rugby. Nous croyons que la technologie peut bénéficier au sport en aidant les joueurs à atteindre leur plein potentiel tout en réduisant les risques de blessures</p>
+            <p>Notre dispositif utilise des capteurs de mouvement et des algorithmes avancés pour analyser en temps réel la posture des joueurs lors des squats. Il détecte les mouvements indésirables où les genoux rentrent vers l'intérieur, prévenant ainsi les blessures. Grâce à des alertes visuelles et sonores, le dispositif informe instantanément les joueurs lorsqu'ils effectuent un squat incorrect.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="content ps-0 ps-lg-5">
+              <p>
+              Nous avons également développé une plateforme en ligne qui enregistre les données de chaque joueur, telles que le nombre de répétitions et les performances au fil du temps. Ces données permettent aux entraîneurs et aux joueurs d'analyser les progrès et d'identifier les domaines à améliorer.
+              </p>
+              
+              <p>
+              Chez RugbyTech, nous sommes déterminés à fournir des outils technologiques pour améliorer la sécurité et les performances des joueurs de rugby. Rejoignez-nous dans notre mission d'améliorer le rugby grâce à la technologie. Ensemble, repoussons les limites, prévenons les blessures et inspirons une nouvelle génération de joueurs performants et en bonne santé.
+
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+
             <!-- ======= Our Team Section ======= -->
     <section id="challenge" class="team challenge">
       <div class="container" data-aos="fade-up">
@@ -229,7 +278,8 @@
               <h6>Nom du joueur</h6>
               <p><?php echo $t->intitule ?></p>
             </div>
-       </div>
+            </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -299,3 +349,59 @@
 </div>
 
 
+
+<script>
+    document.getElementById('myButton').addEventListener('click', handleClick);
+    
+    var variable = 0; // Variable initiale
+    
+    function handleClick() {
+        variable = 1;
+        
+        // Envoyer la variable au contrôleur via une requête AJAX
+        $.ajax({
+            url: '<?php echo base_url("welcome/index"); ?>',
+            method: 'POST',
+            data: {variable: variable},
+            success: function(response) {
+                // Traitement de la réponse du contrôleur
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Gestion des erreurs éventuelles
+                console.log(error);
+            }
+        });
+    }
+
+   /* function reload() {
+        variable = 1;
+        
+        // Envoyer la variable au contrôleur via une requête AJAX
+        $.ajax({
+            url: '<?php echo base_url("welcome/insertiondonnee"); ?>',
+            method: 'POST',
+            data: {variable: variable},
+            success: function(response) {
+              if (response.data.length > 0) {
+                // Recharger la page
+                window.location.reload();
+            }
+                // Traitement de la réponse du contrôleur
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Gestion des erreurs éventuelles
+                console.log(error);
+            }
+        });
+    }
+    // Fonction pour recharger la page
+function reloadPage() {
+    window.location.reload();
+}
+*/
+// Exécuter la fonction reloadPage toutes les 5 secondes (5000 millisecondes)
+setTimeout(reloadPage, 100000);
+    setInterval(reload, 5000);   
+</script>

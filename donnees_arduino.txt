@@ -1,0 +1,16 @@
+Distance: 2.10 cm
+Angle: 127.0 
+Distance: 0.10 cm
+Angle: 129.4
+Distance: 2.10 cm
+Angle: 129.4
+Distance: 8.10 cm
+Angle: 129.4
+Distance: 2.10 cm
+Angle: 129.4
+Distance: 0.10 cm
+Angle: 129.4
+Distance: 1.10 cm
+Angle: 129.4
+
+

@@ -11,7 +11,7 @@
 
   <!-- Favicons -->
   <link href="<?= base_url() ?>assets/img/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url() ?>assets/img/logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -42,8 +42,8 @@
 
 
 
+  
   <header id="header" class="header d-flex align-items-center bg-gradient-danger">
-
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->

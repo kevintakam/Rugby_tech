@@ -1,10 +1,17 @@
 Distance: 198.10 cm
+Angle: 127.0 
 Distance: 205.10 cm
+Angle: 129.4
 Distance: 198.10 cm
+Angle: 129.4
 Distance: 198.10 cm
+Angle: 129.4
 Distance: 198.10 cm
+Angle: 129.4
 Distance: 198.10 cm
+Angle: 129.4
 Distance: 198.10 cm
+Angle: 129.4
 Distance: 209.10 cm
 Distance: 206.10 cm
 Distance: 204.10 cm

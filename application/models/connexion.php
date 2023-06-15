@@ -49,15 +49,25 @@ class connexion extends CI_Model {
                          ->result(); 
                         
     }
-    public function insertData($value)
+    public function insertData($distance, $squad, $statut)
     {
-        // Insérer la valeur dans la table "performance" de la base de données
+        
+        // Insérer la valeur dans la table "distance" de la base de données
         $insertData = array(
-            'distance' => $value
+            'distance' => $distance,
+            'Nombre_squats' => $squad,
+            'statut' => $statut
         );
         $this->db->insert('distance', $insertData);
         return $this->db->insert_id(); // Retourne l'ID de l'enregistrement inséré
     }
+    public function truncateDistanceTable()
+{
+    // Vider la table "distance"
+    $this->db->truncate('distance');
+    $this->db->truncate('distance_squad');
+}
+
     public function insertsquad($count)
     {
         // Insérer la valeur dans la table "squad" de la base de données
@@ -67,5 +77,61 @@ class connexion extends CI_Model {
         $this->db->insert('squad', $insertData);
         return $this->db->insert_id(); // Retourne l'ID de l'enregistrement inséré
     }
-    
+    public function insertDistanceSquad($id_joueur, $distance_ids)
+{
+    $id_joueur=1;
+
+    $data = array(
+        'idjoueur' => $id_joueur,
+        'iddistance' => $distance_ids
+    );
+
+    $this->db->insert('distance_squad', $data);
+    return $this->db->insert_id(); // Retourne l'ID de l'enregistrement insér
+}
+
+public function recupererdistance(){
+    return $this->db->select("*")
+                   ->from("distance d")               
+                    ->get() 
+                     ->result(); 
+                    
+}
+
+public function recupererdistancesid($id_joueur){
+    return $this->db->select("*")
+                   ->from("distance d")               
+                    ->get() 
+                     ->result(); 
+                        
+}
+public function recupererdistanceid($id_joueur) {
+    return $this->db->select("ds.id,ds.idjoueur, COUNT(DISTINCT ds.iddistance) as nombre_distances, d.*")
+        ->from("distance_squad ds")
+        ->join("distance d", "d.id = ds.iddistance")
+        ->where("ds.idjoueur", $id_joueur)
+        ->group_by("ds.id, d.id")
+        ->get()
+        ->result();
+}
+public function squad_total()
+{
+    $this->db->select('COUNT(*) as total')
+             ->from('distance')
+             ->where('Nombre_squats >', 0);
+    $query = $this->db->get();
+    $result = $query->row();
+
+    return $result->total;
+}
+public function DistancesStatus()
+{
+    $this->db->select('*')
+             ->from('distance')
+             ->where('statut', 'mauvais');
+    $query = $this->db->get();
+    $result = $query->result();
+
+    return $result;
+}
 }

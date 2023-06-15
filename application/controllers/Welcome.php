@@ -31,6 +31,14 @@ class Welcome extends CI_Controller {
 		$data['joueursid']=$this->con->recuperertouslesjoueurs($id);
 		$data['challengesid']=$this->con->recupererchallengeparid($id);
 		$data['challenges']=$this->con->recuperertousleschallenges();
+		$data['squad_totals'] = $this->con->squad_total();
+		$data['distancesM'] = $this->con->DistancesStatus();
+		$variable = $this->input->post('variable');
+		if($variable==1)
+		{
+			$this->insertiondonnee();
+		}
+	
 		$this->load->view('header');
 		$this->load->view('index.php',$data);
 		$this->load->view('footer');}
@@ -43,37 +51,60 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	public function insertiondonnee(){
+
+	public function insertiondonnee() {
 		// Charger le modèle de données
-        $this->load->model("connexion","con");
-		$data['joueurs']=$this->con->recuperertouslesjoueurs();
+		$this->load->model("connexion", "con");
+		$id = $this->input->get('id');
 	
-        // Chemin vers le fichier à importer
-        $filepath = 'text.txt'; // Remplacez par le chemin réel de votre fichier
+		$data['joueurs'] = $this->con->recuperertouslesjoueurs();
+		$data['joueursid'] = $this->con->recuperertouslesjoueurs($id);
+		$data['challenges'] = $this->con->recuperertousleschallenges();
+	
+		$data['challengesid'] = $this->con->recupererchallengeparid($id);
+		$data['distances'] = $this->con->recupererdistancesid(1);
+		$data['squad_totals'] = $this->con->squad_total();
+		$data['distancesM'] = $this->con->DistancesStatus();
+		// Chemin vers le fichier à importer
+		$filepath = 'donnees_arduino.txt'; // Remplacez par le chemin réel de votre fichier
+		 // Vider la table "distance"
+		 $this->con->truncateDistanceTable();
+		// Lire le fichier
+		$file = fopen($filepath, 'r');
+		// Parcourir les lignes du fichier
+		
+		while (($data = fgetcsv($file)) !== FALSE) {
+			$distance = '';
+			$squad = '';
+	
+			// Parcourir les données de la ligne
+			foreach ($data as $value) {
+				if (strpos($value, 'Distance: ') !== false) {
+					$distance = str_replace('Distance: ', '', $value);
 
-        // Lire le fichier
-        $file = fopen($filepath, 'r');
+				} elseif (strpos($value, 'Nombre de squats : ') !== false) {
+					$squad = str_replace('Nombre de squats : ', '', $value);				
+				}
+				if ($distance >= 1 && $distance <= 3) {
+					$statut = "mauvais";
+				} else {
+					$statut = "bon";
+				}
+			}
+			// Insérer la distance et l'angle dans la table "distance"
+			
+			// Ajoutez ici la logique pour déterminer le statut en fonction de la distance et de l'angle
+			$distance_id = $this->con->insertData($distance, $squad, $statut); // Insérer la distance, l'angle et récupérer l'ID inséré
+			$distance_ids[] = $distance_id; // Ajouter l'ID de distance au tableau
+			$this->con->insertDistanceSquad($id, $distance_id); // Insérer l'ID du joueur et l'ID de la distance dans la table distance_squad
+		}
+	
+		// Fermer le fichier
+		fclose($file);
+	
+		// Afficher les ID des distances insérées (pour vérification)
 
-        // Parcourir les lignes du fichier
-        while (($data = fgetcsv($file)) !== FALSE) {
-            // Insérer les données dans la base de données
-			$dataarray[]=$data;
-        }
-		var_dump($dataarray);
-        // Fermer le fichier
-        fclose($file);
-
-		// Insérer les données dans la base de données
-		foreach ($dataarray as $value) {
-			$distance = str_replace('Distance: ', '', $value[0]);
-
-			  // Compter le nombre d'éléments dans la valeur de distance
-			  $count = strlen($distance);
-
-		  $this->con->insertData($distance);
-	  }
-	  $this->con->insertSquad($count);
-        // Afficher un message de succès
-        echo 'Données importées avec succès !';
 	}
+	
+	
 }
