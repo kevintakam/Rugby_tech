@@ -38,21 +38,21 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-gem"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Match</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalPlanning">Planning</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Entraînement</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalEntrainement">Entrainement</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box" style="background: black;">
               <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Prototype</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link" data-toggle="modal" data-target="#ModalPrototype">Prototype</a></h4>
             </div>
           </div><!--End Icon Box -->
 
@@ -305,7 +305,7 @@
 </script>
 
 <!-- Modal -->
-<div class="modal" id="ModalChallenge">
+<div class="modal" id="ModalPrototype">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Contenu du modal -->
@@ -349,59 +349,3 @@
 </div>
 
 
-
-<script>
-    document.getElementById('myButton').addEventListener('click', handleClick);
-    
-    var variable = 0; // Variable initiale
-    
-    function handleClick() {
-        variable = 1;
-        
-        // Envoyer la variable au contrôleur via une requête AJAX
-        $.ajax({
-            url: '<?php echo base_url("welcome/index"); ?>',
-            method: 'POST',
-            data: {variable: variable},
-            success: function(response) {
-                // Traitement de la réponse du contrôleur
-                console.log(response);
-            },
-            error: function(xhr, status, error) {
-                // Gestion des erreurs éventuelles
-                console.log(error);
-            }
-        });
-    }
-
-   /* function reload() {
-        variable = 1;
-        
-        // Envoyer la variable au contrôleur via une requête AJAX
-        $.ajax({
-            url: '<?php echo base_url("welcome/insertiondonnee"); ?>',
-            method: 'POST',
-            data: {variable: variable},
-            success: function(response) {
-              if (response.data.length > 0) {
-                // Recharger la page
-                window.location.reload();
-            }
-                // Traitement de la réponse du contrôleur
-                console.log(response);
-            },
-            error: function(xhr, status, error) {
-                // Gestion des erreurs éventuelles
-                console.log(error);
-            }
-        });
-    }
-    // Fonction pour recharger la page
-function reloadPage() {
-    window.location.reload();
-}
-*/
-// Exécuter la fonction reloadPage toutes les 5 secondes (5000 millisecondes)
-setTimeout(reloadPage, 100000);
-    setInterval(reload, 5000);   
-</script>
