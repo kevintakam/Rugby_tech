@@ -53,10 +53,19 @@ class connexion extends CI_Model {
     {
         // Insérer la valeur dans la table "performance" de la base de données
         $insertData = array(
-            'distance_R' => $value[0],
-            'distance_L' => $value[1]
+            'distance' => $value
         );
-        $this->db->insert('perfomance', $insertData);
+        $this->db->insert('distance', $insertData);
         return $this->db->insert_id(); // Retourne l'ID de l'enregistrement inséré
     }
+    public function insertsquad($count)
+    {
+        // Insérer la valeur dans la table "squad" de la base de données
+        $insertData = array(
+            'nombre_squad' => $count
+        );
+        $this->db->insert('squad', $insertData);
+        return $this->db->insert_id(); // Retourne l'ID de l'enregistrement inséré
+    }
+    
 }
